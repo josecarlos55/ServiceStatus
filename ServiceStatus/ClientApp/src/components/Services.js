@@ -1,62 +1,57 @@
 import React, { Component } from 'react';
 
+
 export class Services extends Component {
     static displayName = Services.name;
 
-  constructor(props) {
-    super(props);
-    this.state = { forecasts: [], loading: true };
-  }
+    constructor(props) {
+        super(props);
+        this.state = { forecasts: [], loading: true };
 
-  componentDidMount() {
-    this.populateWeatherData();
-  }
+        fetch('Servico/GetServico')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ forecasts: data, loading: false });
+            });
+    }
 
-  static renderForecastsTable(forecasts) {
-    return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-            {/*<th>Historic</th>*/}
-            <th>Info</th>
-          </tr>
-        </thead>
-        <tbody>
-          {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-                  {/*<td><td>{forecast.date}</td></td>*/}
-                  {/*<td>forecast.temperatureC}</td></td>*/}
-                  {/*<td>forecast.temperatureF}</td>}</td>*/}
-                  {/*<td>forecast.summary}</td>}</td>*/}
-              <td>{forecast.name}</td>
-              <td>{forecast.status}</td>
-              <td>{forecast.summary}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    );
-  }
+    static renderForecastsTable(forecasts) {
+        return (
+            <table className='table table-striped'>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Estado</th>
+                        
 
-  render() {
-    let contents = this.state.loading
-        ? <p><em>Loading...</em></p>
-        : Services.renderForecastsTable(this.state.forecasts);
+                    </tr>
+                </thead>
+                <tbody>
+                    {forecasts.map(forecast =>
+                        <tr key={forecast.id}>
+                            <td>{forecast.id}</td>
+                            <td>{forecast.nome}</td>
+                            <td>{forecast.estado}</td>
+                            
 
-    return (
-      <div>
-        <h1 id="tabelLabel">University of Aveiro - Services</h1>
-        <p>This component shows the status of the Services of the University of Aveiro </p>
-        {contents}
-      </div>
-    );
-  }
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        );
+    }
 
-  async populateWeatherData() {
-    const response = await fetch('weatherforecast');
-    const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
-  }
+    render() {
+        let contents = this.state.loading
+            ? <p><em>Loading...</em></p>
+            : Services.renderForecastsTable(this.state.forecasts);
+
+        return (
+            <div>
+
+                {contents}
+            </div>
+        );
+    }
 }
