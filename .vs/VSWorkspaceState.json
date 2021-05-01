@@ -3,8 +3,9 @@
     "",
     "\\ServiceStatus",
     "\\ServiceStatus\\ClientApp",
-    "\\ServiceStatus\\ClientApp\\src"
+    "\\ServiceStatus\\ClientApp\\src",
+    "\\ServiceStatus\\ClientApp\\src\\components"
   ],
-  "SelectedNode": "\\ServiceStatus\\ClientApp\\src\\App.js",
+  "SelectedNode": "\\ServiceStatus\\ServiceStatus.sln",
   "PreviewInSolutionExplorer": false
 }
