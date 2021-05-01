@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 
-
-
-
-
-
-
 export class Services extends Component {
     static displayName = Services.name;
 
@@ -20,29 +14,34 @@ export class Services extends Component {
             });
     }
 
+    incrementCounter() {
+        this.setState({
+            currentCount: this.state.currentCount + 1
+        });
+    }
+
     static renderForecastsTable(forecasts) {
         return (
             <table className='table table-striped'>
                 <thead>
                     
                     <tr>
-                        <th>id</th>
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Estado</th>
-                        
-
                     </tr>
                 </thead>
                 <tbody>
                     {forecasts.map(forecast => {
-
-
                         return <tr key={forecast.Id}>
                             <td>{forecast.Id}</td>
                             <td>{forecast.Nome}</td>
                             <td>{forecast.Estado}</td>
 
-
+                            <button className="btn btn-primary" onClick={this.incrementCounter}> Historic </button>
+                            <button className="btn btn-primary" onClick={this.incrementCounter}> Subscribe </button>
+                            
+                            
                         </tr>
                     })}
                 </tbody>
@@ -55,9 +54,8 @@ export class Services extends Component {
 
         return (
             <div>
-
                 {contents}
-            </div>
+            </div>  
         );
     }
 }
