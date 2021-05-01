@@ -6,7 +6,7 @@ using ServiceStatus.Models;
 namespace ServiceStatus.Controllers
 {
     
-    public class ServicesController : Controller
+    public class ServiceDataAccess
     {
         isdownContext db = new isdownContext();
 

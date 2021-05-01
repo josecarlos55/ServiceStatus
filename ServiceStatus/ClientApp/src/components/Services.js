@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 
+
+
+
+
+
 export class Services extends Component {
     static displayName = Services.name;
 
@@ -8,7 +13,7 @@ export class Services extends Component {
         super(props);
         this.state = { forecasts: [], loading: true };
 
-        fetch('Servico/GetServico')
+        fetch('Service/Index')
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
@@ -29,15 +34,17 @@ export class Services extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {forecasts.map(forecast =>
-                        <tr key={forecast.Id}>
+                    {forecasts.map(forecast => {
+
+
+                        return <tr key={forecast.Id}>
                             <td>{forecast.Id}</td>
                             <td>{forecast.Nome}</td>
                             <td>{forecast.Estado}</td>
-                           
+
 
                         </tr>
-                    )}
+                    })}
                 </tbody>
             </table>
         );
