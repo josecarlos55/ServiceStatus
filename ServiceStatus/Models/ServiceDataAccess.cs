@@ -15,8 +15,10 @@ namespace ServiceStatus.Controllers
             
             return db.Servicos.ToList();
         }
-
-
+        public IEnumerable<Historico> GetHistor()
+        {
+            return db.Historicos.ToList();
+        }
     }
 }
     

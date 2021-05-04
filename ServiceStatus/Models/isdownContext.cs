@@ -22,6 +22,7 @@ namespace ServiceStatus.Models
         public virtual DbSet<Pessoa> Pessoas { get; set; }
         public virtual DbSet<Servico> Servicos { get; set; }
         public virtual DbSet<Subscricao> Subscricaos { get; set; }
+        public object Historico { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -85,7 +86,7 @@ namespace ServiceStatus.Models
                     .HasConstraintName("FK__Historico__idFal__6BE40491");
 
                 entity.HasOne(d => d.IdServicoNavigation)
-                    .WithMany(p => p.Historicos)
+                    .WithMany(p => p.Historico)
                     .HasForeignKey(d => d.IdServico)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Historico__idSer__6AEFE058");
