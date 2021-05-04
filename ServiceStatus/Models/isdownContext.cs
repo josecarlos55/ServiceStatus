@@ -17,6 +17,8 @@ namespace ServiceStatus.Models
         {
         }
 
+        public virtual DbSet<Falha> Falhas { get; set; }
+        public virtual DbSet<Historico> Historicos { get; set; }
         public virtual DbSet<Pessoa> Pessoas { get; set; }
         public virtual DbSet<Servico> Servicos { get; set; }
         public virtual DbSet<Subscricao> Subscricaos { get; set; }
@@ -33,6 +35,61 @@ namespace ServiceStatus.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Falha>(entity =>
+            {
+                entity.ToTable("Falha", "id");
+
+                entity.Property(e => e.Id)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Descricao)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("descricao");
+
+                entity.Property(e => e.Tempo)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("tempo");
+            });
+
+            modelBuilder.Entity<Historico>(entity =>
+            {
+                entity.HasKey(e => new { e.IdServico, e.IdFalha })
+                    .HasName("PK__Historic__F0D188F01ADC02AD");
+
+                entity.ToTable("Historico", "id");
+
+                entity.Property(e => e.IdServico)
+                    .HasMaxLength(9)
+                    .IsUnicode(false)
+                    .HasColumnName("idServico");
+
+                entity.Property(e => e.IdFalha)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("idFalha");
+
+                entity.Property(e => e.DataFalha)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("dataFalha");
+
+                entity.HasOne(d => d.IdFalhaNavigation)
+                    .WithMany(p => p.Historicos)
+                    .HasForeignKey(d => d.IdFalha)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Historico__idFal__6BE40491");
+
+                entity.HasOne(d => d.IdServicoNavigation)
+                    .WithMany(p => p.Historicos)
+                    .HasForeignKey(d => d.IdServico)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Historico__idSer__6AEFE058");
+            });
 
             modelBuilder.Entity<Pessoa>(entity =>
             {

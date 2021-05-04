@@ -9,13 +9,15 @@ namespace ServiceStatus.Models
     {
         public Servico()
         {
-            Subscricaos = new HashSet<Subscricao>();
+            Historico = new HashSet<Historico>();
+            Subscricoes = new HashSet<Subscricao>();
         }
 
         public string Id { get; set; }
         public string Nome { get; set; }
         public string Estado { get; set; }
 
-        public virtual ICollection<Subscricao> Subscricaos { get; set; }
+        public virtual ICollection<Historico> Historico { get; set; }
+        public virtual ICollection<Subscricao> Subscricoes { get; set; }
     }
 }
