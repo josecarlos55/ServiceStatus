@@ -36,21 +36,24 @@ export class Services extends Component {
 
         return (
             <div>
-                <table className='table table-striped'>
+                <table className= 'table table-striped variant= "dark"' >
                     <thead>
 
                         <tr>
-                            <th>Id</th>
+                            
                             <th>Name</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
+
+                        
                         {this.state.forecasts.map(forecast => {
-                            return <tr key={forecast.Id}>
-                                <td>{forecast.Id}</td>
-                                <td>{forecast.Nome}</td>
-                                <td>{forecast.Estado}</td>
+                            console.log(forecast);
+                            return <tr key={forecast.id}>
+                                
+                                <td>{forecast.nome}</td>
+                                <td>{forecast.estado}</td>
                               
                                 <td><NavLink exact activeClassName="active" to="/Historic"> Historic </NavLink></td>
 

@@ -12,6 +12,7 @@ namespace ServiceStatus.Controllers
 
         public IEnumerable<Servico> GetServico()
         {
+            
             return db.Servicos.ToList();
         }
 
