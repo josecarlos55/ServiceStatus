@@ -11,25 +11,17 @@ export class Historic extends Component {
         super(props);
         this.state = { forecasts: [], loading: true };
 
-        fetch('Service/Index')
+        fetch('Historic/Index')
             .then(response => response.json())
             .then(data => {
                 this.setState({ forecasts: data, loading: false });
             });
     }
-    onSubmit() {
 
+    onSubmit() {
         const history = useHistory();
         history.push('/Historic');
     }
-
-
-    incrementCounter() {
-        console.log("Teste")
-
-    }
-
-
 
     render() {
         //let contents = this.renderForecastsTable(this.state.forecasts);
@@ -40,7 +32,6 @@ export class Historic extends Component {
                     <thead>
 
                         <tr>
-
                             <th>Falha</th>
                             <th>Serviço</th>
                             <th>Data</th>
@@ -51,14 +42,11 @@ export class Historic extends Component {
 
                         {this.state.forecasts.map(forecast => {
                             console.log(forecast);
-                            return <tr key={forecast.idfalha, forecast.idservico}>
+                            return <tr key={forecast.idfalha}>
 
-                                <td>{forecast.idfalha}</td>
-                                <td>{forecast.idservico}</td>
-                                <td>{forecast.datafalha}</td>
-
-                                
-
+                                <td>{forecast.idFalha}</td>
+                                <td>{forecast.idServico}</td>
+                                <td>{forecast.dataFalha}</td>
 
                             </tr>
                         })}

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 export class Services extends Component {
     static displayName = Services.name;
@@ -17,49 +20,42 @@ export class Services extends Component {
                 this.setState({ forecasts: data, loading: false });
             });
     }
+
      onSubmit () {
-      
        const history = useHistory();
        history.push('/Historic');
     }
 
-
-    incrementCounter() {
-        console.log("Teste")
-       
-    }
-
-   
-
     render() {
         //let contents = this.renderForecastsTable(this.state.forecasts);
+
+        const handleOnClickDefault = () => {
+            store.addNotification({
+                title: "Subscrição",
+                message: "Notificações ativadas com sucesso!",
+                type: "success",
+                container: "center",
+                insert: "top"
+            })
+        }
 
         return (
             <div>
                 <table className= 'table table-striped variant= "dark"' >
                     <thead>
-
-                        <tr>
-                            
+                        <tr> 
                             <th>Name</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        
                         {this.state.forecasts.map(forecast => {
                             console.log(forecast);
                             return <tr key={forecast.id}>
-                                
                                 <td>{forecast.nome}</td>
                                 <td>{forecast.estado}</td>
-                              
-                                <td><NavLink exact activeClassName="active" to="/Historic"> Historic </NavLink></td>
-
-                                <td><button className="btn btn-primary" onClick={this.incrementCounter}> Subscribe </button></td>
-
-
+                                <td><NavLink exact activeClassName="active" to="/Historic"> Historic </NavLink></td> 
+                                <td><button onClick={handleOnClickDefault}> Subscribe </button> </td>
                             </tr>
                         })}
                     </tbody>

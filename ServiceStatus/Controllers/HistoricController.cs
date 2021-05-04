@@ -7,13 +7,13 @@ namespace ReactCrudDemo.Controllers
 {
     public class HistoricController : Controller
     {
-        ServiceDataAccess historic = new ServiceDataAccess();
+        HistoricDataAccess historic = new HistoricDataAccess();
 
         [HttpGet]
         [Route("Historic/Index")]
         public IEnumerable<Historico> Index()
         {
-            return historic.GetHistor();
+            return historic.GetHistoric();
         }
     }
 }

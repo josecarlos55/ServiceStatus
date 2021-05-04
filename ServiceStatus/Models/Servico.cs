@@ -10,7 +10,7 @@ namespace ServiceStatus.Models
         public Servico()
         {
             Historico = new HashSet<Historico>();
-            Subscricoes = new HashSet<Subscricao>();
+            Subscricaos = new HashSet<Subscricao>();
         }
 
         public string Id { get; set; }
@@ -18,6 +18,6 @@ namespace ServiceStatus.Models
         public string Estado { get; set; }
 
         public virtual ICollection<Historico> Historico { get; set; }
-        public virtual ICollection<Subscricao> Subscricoes { get; set; }
+        public virtual ICollection<Subscricao> Subscricaos { get; set; }
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using ServiceStatus.Models;
 namespace ServiceStatus.Controllers
 {
@@ -11,14 +9,9 @@ namespace ServiceStatus.Controllers
         isdownContext db = new isdownContext();
 
         public IEnumerable<Servico> GetServico()
-        {
-            
+        { 
             return db.Servicos.ToList();
-        }
-        public IEnumerable<Historico> GetHistor()
-        {
-            return db.Historicos.ToList();
-        }
+        }  
     }
 }
     
