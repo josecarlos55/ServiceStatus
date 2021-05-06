@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Spring } from 'react-spring';
 import { Transition, animated } from "react-spring";
-
 import './custom1.css'
-
+import Card from './LayoutHome/Card';
+import  './LayoutHome/Cardbox.css';
 export class Home extends Component {
     static displayName = Home.name;
 
@@ -23,17 +23,18 @@ export class Home extends Component {
                             <li><strong>Consultar falhas</strong> de cada serviço</li>
                             <li><strong>Subscrever</strong> serviços para receber notifações acerca dos mesmos </li>
                         </div>
-                        <div>
-                            <div>
-                                <img src="/images/UA.png" width="400" alt="" />
-                                <img src="/images/Elearning.png" alt="" />
-
-                                <img src="/images/Codeua.PNG" alt="" />
-                                <img src="/images/Glua.png" alt="" />
-                                <img src="/images/stick.png" alt="" />
-                                <img src="/images/PACO.png" alt="" />
+                        
+                            <div classname= "Cardbox">
+                                <Card titulo="Elearning" color="#354458"><img src="/images/Elearning.png" alt="" />
+                                                                                                                        </Card>
+                                <Card titulo="Focado na rede da Ua" color="#DE593A" > <img src="/images/UA.png" width="400" alt="" /></Card>
+                                
+                                <Card titulo="CodeUA" color="#E94C6F"><img src="/images/Codeua.PNG" alt="" /></Card>
+                                <Card titulo="Glua" color="#73503C"><img src="/images/Glua.png" alt="" /></Card>
+                                <Card titulo="Stick" color="darkBlue"> <img src="/images/stick.png" alt="" /></Card>
+                                <Card titulo="PACO" color="Orange"><img src="/images/PACO.png" alt="" /></Card>
                             </div>
-                        </div>
+                        
                     </div>
                 )}
             </Spring>
