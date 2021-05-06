@@ -3,7 +3,9 @@ import { Spring } from 'react-spring';
 import { Transition, animated } from "react-spring";
 import './custom1.css'
 import Card from './LayoutHome/Card';
-import  './LayoutHome/Cardbox.css';
+import './LayoutHome/Cardbox.css';
+
+
 export class Home extends Component {
     static displayName = Home.name;
 
