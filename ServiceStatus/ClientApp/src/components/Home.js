@@ -27,7 +27,7 @@ export class Home extends Component {
                             <div className= "Cardbox">
                        
                            <Card titulo="Elearning" color="#354458"><img src="/images/Elearning.png" alt="" /></Card>
-                            <Card titulo="Focado na rede da Ua" color="#DE593A" > <img src="/images/UA.png" width="400" alt="" /></Card>
+                            <Card titulo="Rede da Ua" color="#DE593A" > <img src="/images/UA.png" width="400" alt="" /></Card>
                                 
                                 <Card titulo="CodeUA" color="#E94C6F"><img src="/images/Codeua.PNG" alt="" /></Card>
                                 <Card titulo="Glua" color="#73503C"><img src="/images/Glua.png" alt="" /></Card>
