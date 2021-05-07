@@ -21,20 +21,20 @@ export class Home extends Component {
                         <div style={c1Style}>
                             <h1>Service Status</h1>
                             <p>Com o Service Status pode:</p>
-                            <li><strong>Consultar informações mais atualizadas</strong> sobre a disponibilidade dos serviços da UA.</li>
-                            <li><strong>Consultar falhas</strong> de cada serviço</li>
-                            <li><strong>Subscrever</strong> serviços para receber notifações acerca dos mesmos </li>
+                            <li><strong>Consultar informações mais atualizadas</strong> sobre a disponibilidade dos serviços da UA;</li>
+                            <li><strong>Consultar falhas</strong> de cada serviço;</li>
+                            <li><strong>Subscrever</strong> serviços para receber notificações acerca dos mesmos. </li>
                         </div>
                         
                             <div className= "Cardbox">
                        
-                           <Card titulo="Elearning" color="#354458"><img src="/images/Elearning.png" alt="" /></Card>
-                            <Card titulo="Rede da Ua" color="#DE593A" > <img src="/images/UA.png" width="400" alt="" /></Card>
+                           <Card titulo="Elearning" color="#354458"><img src="/images/Elearning.png"  /></Card>
+                            <Card titulo="Rede da Ua" color="#354458" > <img src="/images/UA.png" width="400" alt="" /></Card>
                                 
-                                <Card titulo="CodeUA" color="#E94C6F"><img src="/images/Codeua.PNG" alt="" /></Card>
-                                <Card titulo="Glua" color="#73503C"><img src="/images/Glua.png" alt="" /></Card>
-                                <Card titulo="Stick" color="darkBlue"> <img src="/images/stick.png" alt="" /></Card>
-                                <Card titulo="PACO" color="Orange"><img src="/images/PACO.png" alt="" /></Card>
+                            <Card titulo="CodeUA" color="#354458"><img src="/images/Codeua.PNG"  /></Card>
+                            <Card titulo="Glua" color="#354458"><img src="/images/Glua.png" /></Card>
+                            <Card titulo="Stick" color="#354458"> <img src="/images/stick.png"  /></Card>
+                            <Card titulo="PACO" color="#354458"><img src="/images/PACO.png"/></Card>
 
                             </div>
                         

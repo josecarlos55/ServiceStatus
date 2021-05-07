@@ -1,0 +1,10 @@
+.float-container {
+    display:compact;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+   
+  
+}
