@@ -7,7 +7,6 @@ namespace ServiceStatus.Models
 {
     public partial class Historico
     {
-
         public string IdServico { get; set; }
         public string DataFalha { get; set; }
         public string IdFalha { get; set; }
