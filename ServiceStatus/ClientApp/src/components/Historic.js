@@ -9,12 +9,12 @@ export class Historic extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { forecasts: [], loading: true };
-
+        this.state = { forecasts: [], loading: true, idServico: props.location.props.state[0], nomeServico: props.location.props.state[1] };
+        console.log("idServico - ", props.location.props.state);
         fetch('Historic/Index')
             .then(response => response.json())
             .then(data => {
-                this.setState({ forecasts: data, loading: false });
+                this.setState({ forecasts: data, loading: false, idServico: props.location.props.state[0], nomeServico: props.location.props.state[1] });
             });
     }
 
@@ -25,7 +25,7 @@ export class Historic extends Component {
 
     render() {
         //let contents = this.renderForecastsTable(this.state.forecasts);
-
+     
         return (
             <div>
                 <table className='table table-striped variant= "dark"' >
@@ -42,13 +42,15 @@ export class Historic extends Component {
 
                         {this.state.forecasts.map(forecast => {
                             console.log(forecast);
-                            return <tr key={forecast.idfalha}>
+                            if (this.state.idServico == forecast.idServico) {
+                                return <tr key={forecast.idfalha, forecast.idServico, forecast.dataFalha}>
 
-                                <td>{forecast.idFalha}</td>
-                                <td>{forecast.idServico}</td>
-                                <td>{forecast.dataFalha}</td>
+                                    <td>{forecast.idFalha}</td>
+                                    <td>{this.state.nomeServico}</td>
+                                    <td>{forecast.dataFalha}</td>
 
-                            </tr>
+                                </tr>
+                            }
                         })}
                     </tbody>
                 </table>

@@ -55,7 +55,7 @@ export class Services extends Component {
                             return <tr key={forecast.id}>
                                 <td>{forecast.nome}</td>
                                 <td>{forecast.estado}</td>
-                                <td><NavLink exact activeClassName="active" to="/Historic"> Historic </NavLink></td> 
+                                <td><NavLink exact activeClassName="active" to={{ pathname: "/Historic", props: { state: [forecast.id, forecast.nome ]} }}> Historic </NavLink></td> 
                                 <td><button onClick={handleOnClickDefault}> Subscribe </button> </td>
                             </tr>
                         })}
